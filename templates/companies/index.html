@@ -1,0 +1,15 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'companies/css/bootstrap.css' %}">
+
+<link rel="stylesheet" type="text/css" href="{% static 'companies/css/bootstrap-grid.css' %}">
+
+<link rel="stylesheet" type="text/css" href="{% static 'companies/css/bootstrap-reboot.css' %}">
+{%  if our_companies %}
+    <ul>
+        {% for company in our_companies %}
+        <li><a href="/companies/{{ company.id }}/">{{ company.company_name }}</a></li>
+    {% endfor %}
+    </ul>
+    {% else %}
+    <p>No companies added yet.</p>
+{% endif %}
