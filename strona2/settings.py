@@ -101,13 +101,18 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR,'static'),
+    'var/www/static',
+]
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'CEST'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
