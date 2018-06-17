@@ -1,0 +1,16 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'companies/css/bootstrap.css' %}">
+
+<link rel="stylesheet" type="text/css" href="{% static 'companies/css/bootstrap-grid.css' %}">
+
+<link rel="stylesheet" type="text/css" href="{% static 'companies/css/bootstrap-reboot.css' %}">
+
+{% block content %}
+    <h2>Create new user</h2>
+    <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+     <button type="submit" name="add user" class="btn-dark" value="Submit">Add</button>
+
+    </form>
+{% endblock %}

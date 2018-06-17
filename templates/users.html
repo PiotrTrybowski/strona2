@@ -6,9 +6,20 @@
 <link rel="stylesheet" type="text/css" href="{% static 'companies/css/bootstrap-reboot.css' %}">
 {%  if users_list %}
     <ul>
+
         {% for user in users_list %}
-        <li><a href="/users/{{ user.id }}/">{{ user.username }}</a><button ></li>
+        <li>
+             <form action="delete_user" method="POST">
+                                {% csrf_token %}
+            <p>{{ user.username }}</p>
+                <input type="hidden" name="user_id" value="{{ user.id }}">
+                <input type="submit" class="button" name="delete_company" value="x" id="delete_company"/>
+
+            </form>
+            </li>
     {% endfor %}
+    <ul>
+            <a href="/companies/new_user" class="btn btn-info" role="button">+</a>    </ul>
     </ul>
     {% else %}
     <p>No users added yet.</p>
