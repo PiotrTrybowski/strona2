@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import redirect
+from django.conf import settings
 from . import views
 from django.template import loader
 from .models import Company
@@ -13,8 +15,13 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, authenticate
 from django.forms.models import modelformset_factory
 
+
 def index(request):
     return render(request, 'home.html')
+
+
+def login(request):
+    return render(request, 'login.html')
 
 
 def users(request):
