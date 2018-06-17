@@ -6,22 +6,37 @@
 <link rel="stylesheet" type="text/css" href="{% static 'companies/css/bootstrap-reboot.css' %}">
 
 {% if our_companies %}
-        <ul>
+    <div class="container">
+    <h2>Our companies</h2>
+
+     <form class="dataTable" action="delete_company" method="POST">
+    <table class="table table-dark table-hover table-responsive">
+    <thead>
+    <tr>
+        <th>Company name</th>
+        <th>remove company</th>
+    </tr>
+    </thead>
+    <tbody>
         {% for company in our_companies %}
-            <li>
-            <form action="delete_company" method="POST">
-                                    {% csrf_token %}
-            <a href="/companies/{{ company.id }}"/> {{ company.company_name }}
-                <input type="hidden" name="company_id" value="{{ company.id }}">
-                <input type="submit" class="button" name="delete_company" value="x" id="delete_company"/>
+            <tr>
 
-            </form>
-            </li>
+                {% csrf_token %}
 
+            <td><a href="/companies/{{ company.id }}"/> {{ company.company_name }}</td>
+            <td><input type="hidden" name="company_id" value="{{ company.id }}">
+                <input type="submit" class="btn btn-danger" name="delete_company" value="x" id="delete_company"/>
+            </td>
+
+            </tr>
         {% endfor %}
-       </ul>
-        <ul>
-            <a href="/companies/new_company" class="btn btn-info" role="button">+</a>    </ul>
-        {% else %}
+     </tbody>
+    </table>
+      </form>
+    </div>
+    <div class="container">
+            <a href="/companies/new_company" class="btn btn-info btn-block" role="button">+</a>
+    </div>
+            {% else %}
         <p>No companies added yet.</p>
     {% endif %}
