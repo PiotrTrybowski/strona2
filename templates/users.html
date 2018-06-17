@@ -5,22 +5,37 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'companies/css/bootstrap-reboot.css' %}">
 {%  if users_list %}
-    <ul>
-
+    <div class="container">
+    <form action="delete_user" method="POST">
+    <table class="table table-responsive table-hover table-dark">
+    <thead>
+    <tr>
+        <td>Username</td>
+        <td>Delete user</td>
+    </tr>
+    </thead>
+    <tbody>
         {% for user in users_list %}
-        <li>
-             <form action="delete_user" method="POST">
-                                {% csrf_token %}
-            <p>{{ user.username }}</p>
-                <input type="hidden" name="user_id" value="{{ user.id }}">
-                <input type="submit" class="button" name="delete_company" value="x" id="delete_company"/>
 
-            </form>
+
+                                {% csrf_token %}
+            <tr>
+            <td>{{ user.username }}</td>
+            <td><input type="hidden" name="user_id" value="{{ user.id }}">
+                <input type="submit" class="button" name="delete_company" value="x" id="delete_company"/>
+            </td>
+            </tr>
+
+
             </li>
     {% endfor %}
-    <ul>
-            <a href="/companies/new_user" class="btn btn-info" role="button">+</a>    </ul>
-    </ul>
+    </tbody>
+    </table>
+     </form>
+
+            <a href="/companies/new_user" class="btn btn-info btn-block" role="button">Add new user</a>
+    </div>
     {% else %}
+
     <p>No users added yet.</p>
 {% endif %}
