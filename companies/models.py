@@ -1,6 +1,7 @@
 import datetime
 from django.db import models
 from django.utils import timezone
+from django.forms import ModelForm
 
 # Create your models here.
 class Company(models.Model):
@@ -11,4 +12,3 @@ class Company(models.Model):
         return self.company_name
     def is_new(self):
         return self.date_of_addition>= timezone.now() - datetime.timedelta(days=7)
-

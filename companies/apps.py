@@ -1,5 +1,8 @@
 from django.apps import AppConfig
 
 
-class PollsConfig(AppConfig):
+class CompaniesConfig(AppConfig):
     name = 'companies'
+
+class UsersConfig(AppConfig):
+    name = "users"

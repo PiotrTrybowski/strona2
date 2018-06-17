@@ -1,0 +1,24 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'companies/css/bootstrap.css' %}">
+
+<link rel="stylesheet" type="text/css" href="{% static 'companies/css/bootstrap-grid.css' %}">
+
+<link rel="stylesheet" type="text/css" href="{% static 'companies/css/bootstrap-reboot.css' %}">
+{% block title %}.{% endblock %}
+
+{% block content %}
+    <h2>Add new company</h2>
+    <form action="companies" name="company" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <label for="company_name">company name: </label>
+            <input type="text" name="company_name" id="company_name" value="{{ company_name }}">
+
+        <label for="date_of_addition">added when: </label>
+            <input type="date" name="date_of_addition" id="date_of_addition" value="{{ date_of_addition }}">
+        <div class="error"{{ error }}></div>
+     <button type="submit" name="add company" class="btn-dark" value="Submit">Add Company</button>
+    </form>
+
+
+{% endblock %}
