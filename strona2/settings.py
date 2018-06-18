@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.postgres',
 ]
 
 MIDDLEWARE = [
@@ -78,7 +79,13 @@ WSGI_APPLICATION = 'strona2.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
+        #'ENGINE': 'django.db.backends.postgresql',
         'NAME': os.path.join(BASE_DIR, 'mojapierwszabaza'),
+        #'USER': 'admin',
+        #'PASSWORD': 'cave9876',
+        #'HOST': '127.0.0.1',
+        #'PORT': '5432'
+
     }
 }
 
@@ -112,7 +119,7 @@ STATICFILES_DIRS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'CEST'
 
 USE_I18N = True
 
@@ -126,3 +133,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL = '/companies'
+
+import django_heroku
+django_heroku.settings(locals())
