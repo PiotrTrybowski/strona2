@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+import psycopg2
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,7 +26,7 @@ SECRET_KEY = '5!u$e$14a_qt&wz5h_psnyk$02m%m-9qz^4!cf8h74(k*6z30h'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['arcane-garden-3972.herokuapp.com']
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
@@ -38,6 +39,8 @@ STATICFILES_DIRS = (
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
+DATABASE_URL = os.environ['DATABASE_URL']
+conn = psycopg2.connect(DATABASE_URL, sslmode = 'require')
 # Application definition
 
 INSTALLED_APPS = [
@@ -88,13 +91,13 @@ WSGI_APPLICATION = 'strona2.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        #'ENGINE': 'django.db.backends.postgresql',
+        #'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': os.path.join(BASE_DIR, 'mojapierwszabaza'),
-        #'USER': 'admin',
-        #'PASSWORD': 'cave9876',
-        #'HOST': '127.0.0.1',
-        #'PORT': '5432'
+        'USER': 'admin',
+        'PASSWORD': 'cave9876',
+        'HOST': '127.0.0.1',
+        'PORT': '5432'
 
     }
 }
@@ -129,7 +132,7 @@ STATICFILES_DIRS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'CEST'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 

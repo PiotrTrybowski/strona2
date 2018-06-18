@@ -19,6 +19,7 @@ from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [
+    path('https://arcane-garden-32972.herokuapp.com/', auth_views.login, name = 'login.urls'),
     path('',auth_views.login, name = 'login.urls'),
     path(r'login',auth_views.login, name = 'login.urls'),
     path(r'logout',auth_views.logout, name = 'logout.urls'),
