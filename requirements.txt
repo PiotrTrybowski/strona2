@@ -16,7 +16,7 @@ beautifulsoup4==4.6.0
 betterpath==0.2.2
 bkcharts==0.2
 blaze==0.10.1
-bleach==1.5.0
+bleach==3.3.0
 blosc==1.5.1
 bloscpack==0.11.0
 bokeh==0.12.6
