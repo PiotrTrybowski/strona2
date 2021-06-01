@@ -296,7 +296,7 @@ traittypes==0.0.6
 twine==1.9.1
 twitter==1.17.1
 typed-ast==1.0.4
-urllib3==1.21.1
+urllib3==1.26.5
 utils==0.9.0
 vcversioner==2.16.0.0
 vega==0.5.0
