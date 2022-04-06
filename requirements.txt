@@ -153,7 +153,7 @@ nbformat==4.3.0
 netCDF4==1.2.9
 networkx==1.11
 nltk==3.2.4
-notebook==5.1.0rc1
+notebook==6.4.10
 numba==0.34.0
 numdifftools==0.9.20
 numexpr==2.6.2
