@@ -84,7 +84,7 @@ gym==0.10.4
 h5py==2.7.0
 HeapDict==1.0.0
 holoviews==1.8.2
-html5lib==0.9999999
+html5lib==0.99999999
 humanfriendly==4.4.1
 husl==4.0.3
 idna==2.5
